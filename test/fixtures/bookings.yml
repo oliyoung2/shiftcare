@@ -1,0 +1,37 @@
+# == Schema Information
+#
+# Table name: bookings
+#
+#  id            :bigint           not null, primary key
+#  aasm_state    :string
+#  address       :string           not null
+#  booking_at    :datetime         not null
+#  discarded_at  :datetime
+#  email_address :string           not null
+#  lat           :float
+#  lng           :float
+#  notes         :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  client_id     :bigint
+#  created_by_id :bigint           not null
+#
+# Indexes
+#
+#  index_bookings_on_client_id     (client_id)
+#  index_bookings_on_discarded_at  (discarded_at)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (client_id => clients.id)
+#
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the "{}" from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+# column: value

@@ -1,0 +1,16 @@
+<h6><%= @booking.aasm_state %></h6>
+<h1><%= l @booking.booking_at %></h1>
+<div class="address"><%= @booking.address %></div>
+<div class="notes"><%= @booking.notes %></div>
+
+    <div class=" bg-blue-50 p-4 text-blue-800 rounded mb-2 text-sm"><%= Client.model_name.human %></div>
+<div class="grid grid-cols-4 gap-4 mb-4">
+    <%= render partial: @booking.client %>
+</div>
+
+    <div class="bg-blue-50 p-4 text-blue-800 rounded text-sm mb-2"><%= Employee.model_name.human.pluralize %>
+    <%= link_to t("booking.employee.add"), "#" %></div>
+<div class="grid grid-cols-4 gap-4 mb-4">
+    <%= render partial: @booking.employees %>
+
+</div>

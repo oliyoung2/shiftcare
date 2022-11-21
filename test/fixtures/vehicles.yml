@@ -1,0 +1,31 @@
+# == Schema Information
+#
+# Table name: vehicles
+#
+#  id           :bigint           not null, primary key
+#  discarded_at :datetime
+#  name         :string
+#  registration :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  employee_id  :bigint           not null
+#
+# Indexes
+#
+#  index_vehicles_on_discarded_at  (discarded_at)
+#  index_vehicles_on_employee_id   (employee_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (employee_id => employees.id)
+#
+
+one:
+  name: MyString
+  registration: MyString
+  employee: one
+
+two:
+  name: MyString
+  registration: MyString
+  employee: two

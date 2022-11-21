@@ -1,0 +1,40 @@
+<h1><%= Booking.model_name.human %></h1>
+<%= render partial: "errors", locals: { resource: @booking } -%>
+<%= form_for @booking do |f| %>
+    <div class="form-group">
+        <%= f.label Booking.human_attribute_name(:booking_at) %>
+        <%= f.datetime_field :booking_at %>
+    </div>
+    <div class="form-group">
+        <%= f.label Booking.human_attribute_name(:notes) %>
+        <%= f.text_area :notes %>
+    </div>
+    <%= f.fields_for :client do |client_builder| %>
+        <h3><%= Client.model_name.human %></h3>
+        <div class="form-group">
+            <%= f.label Client.human_attribute_name(:firstname) %>
+            <%= client_builder.text_field :firstname %>
+        </div>
+        <div class="form-group">
+            <%= f.label Client.human_attribute_name(:surname) %>
+            <%= client_builder.text_field :surname %>
+        </div>
+        <div class="form-group">
+            <%= f.label Client.human_attribute_name(:email_address) %>
+            <%= client_builder.text_field :email_address %>
+        </div>
+        <div class="form-group">
+            <%= f.label Client.human_attribute_name(:phone_number) %>
+            <%= client_builder.text_field :phone_number %>
+        </div>
+        <div class="form-group">
+            <%= f.label Client.human_attribute_name(:address) %>
+            <%= client_builder.text_field :address %>
+        </div>
+        <div class="form-group">
+            <%= f.label Client.human_attribute_name(:date_of_birth) %>
+            <%= client_builder.date_field :date_of_birth %>
+        </div>
+    <% end -%>
+    <%= f.submit class: 'btn' %>
+<% end -%>

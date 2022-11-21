@@ -1,0 +1,26 @@
+<h1><%= Booking.model_name.human.pluralize %></h1>
+<%= link_to t("booking.new"), new_booking_path, class: 'btn' %>
+<div class="flex flex-col mt-4 divide-y border border-gray-100 rounded divide-gray-100">
+<% @bookings.each do |booking| %>
+    <%= link_to booking_path(booking), id: dom_id(booking), class: "px-6 py-4 items-center flex flex-row hover:bg-blue-50 hover:border-blue-100" do %>
+        <div class="flex-1 flex items-center gap-4">
+            <span class="w-24 text-center h-content bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">
+                <%= t("booking.aasm_states.#{booking.aasm_state}") %>
+            </span>
+            <div>
+                <h4 class="font-bold"><%= booking.client %></h4>
+                <p class="text-sm"><%= booking.client.phone_number%></p>
+            </div>
+        </div>
+        <div class="flex-1">
+            <h4><%= booking.address %></h4>
+        </div>
+        <div class="flex-1">
+            <h4><%= booking.employees.map{|e| e.to_s}.to_sentence %></h4>
+        </div>
+        <div class="w-24 text-right">
+            <p><%= l(booking.booking_at.to_date, format: :short) %></p>
+        </div>
+    <% end -%>
+<% end -%>
+</div>

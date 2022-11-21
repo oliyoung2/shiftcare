@@ -1,0 +1,26 @@
+<div class="p-4 border rounded border-blue-100 " >
+    <div>
+        <%= link_to client_path(client), class: "text-xl" do %>
+            <%= client.firstname %>
+                <span class="font-bold">
+                    <%= client.surname %>
+                </span>
+        <% end %>
+                <div class="text-gray-500 text-sm" >
+                        <%= mail_to client.email_address %>
+                </div>
+        <div>
+            <%= link_to client.phone_number, "tel:#{client.phone_number}" %>
+        </div>
+        <div>
+            <%= client.address %>
+        </div>
+        <div>
+            <%= client.notes %>
+        </div>
+        <div class="text-gray-200 text-sm">
+            <%= Client.human_attribute_name(:updated_at) %>
+                <%= client.updated_at%>
+        </div>
+    </div>
+</div>
